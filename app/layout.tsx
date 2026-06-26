@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { OrganizationJsonLd, WebSiteJsonLd, SoftwareApplicationJsonLd } from "@/components/shared/json-ld";
 import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
@@ -25,6 +26,9 @@ export const metadata: Metadata = {
   keywords: [...SITE_CONFIG.keywords],
   authors: [{ name: "CostDog" }],
   creator: "CostDog",
+  icons: {
+    icon: "/icon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -65,6 +69,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background text-foreground antialiased">
+        <OrganizationJsonLd />
+        <WebSiteJsonLd />
+        <SoftwareApplicationJsonLd />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
