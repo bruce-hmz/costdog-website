@@ -68,6 +68,7 @@ export default function OpenSourcePage() {
                   href={SITE_CONFIG.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="whitespace-nowrap"
                 >
                   <Github className="h-4 w-4" />
                   View on GitHub
