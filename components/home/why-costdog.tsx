@@ -36,12 +36,12 @@ const reasons = [
 
 export function WhyCostDog() {
   return (
-    <Section className="bg-foreground">
+    <Section className="bg-foreground dark:bg-background">
       <SectionHeader
         badge="Why CostDog"
         title="AI coding is powerful. AI costs are invisible."
         description="CostDog fixes that in seconds."
-        className="[&_span]:bg-white/10 [&_span]:text-white/70 [&_span]:border-white/10 [&_h2]:text-white [&_p]:text-white/60"
+        className="[&_span]:bg-white/10 [&_span]:text-white/70 [&_span]:border-white/10 [&_h2]:text-white [&_p]:text-white/70"
       />
 
       <div className="mt-12 flex flex-col gap-6">
@@ -65,7 +65,7 @@ export function WhyCostDog() {
               <h3 className="mb-2 text-lg font-semibold text-white">
                 {reason.problem}
               </h3>
-              <p className="text-sm text-white/60">{reason.problemDetail}</p>
+              <p className="text-sm text-white/70">{reason.problemDetail}</p>
             </div>
 
             {/* Arrow divider */}
@@ -84,7 +84,7 @@ export function WhyCostDog() {
               <h3 className="mb-2 text-lg font-semibold text-white">
                 {reason.solution}
               </h3>
-              <p className="text-sm text-white/60">{reason.solutionDetail}</p>
+              <p className="text-sm text-white/70">{reason.solutionDetail}</p>
             </div>
           </motion.div>
         ))}
