@@ -1,8 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Heart, ExternalLink as Github, Globe, Mail } from "lucide-react";
 import { Section, SectionHeader } from "@/components/shared/section";
+import { FadeIn } from "@/components/shared/fade-in";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Glow } from "@/components/shared/glow";
@@ -16,11 +14,7 @@ export default function AboutPage() {
         <Glow />
         <div className="grid-bg absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="animate-fade-in-up">
             <Badge variant="primary" className="mb-6">
               About
             </Badge>
@@ -33,19 +27,14 @@ export default function AboutPage() {
               CostDog was born from a simple frustration: using AI coding
               assistants without knowing how much they cost.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Story */}
       <Section>
         <div className="mx-auto max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <FadeIn>
             <h2 className="mb-6 text-2xl font-semibold text-foreground">
               The Story
             </h2>
@@ -72,7 +61,7 @@ export default function AboutPage() {
                 free.
               </p>
             </div>
-          </motion.div>
+          </FadeIn>
         </div>
       </Section>
 
@@ -104,13 +93,7 @@ export default function AboutPage() {
                 "MIT licensed. Transparent. Community driven. Anyone can inspect, contribute, or fork.",
             },
           ].map((value, i) => (
-            <motion.div
-              key={value.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
+            <FadeIn key={value.title} delay={i * 100}>
               <Card className="h-full text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                   <value.icon className="h-6 w-6 text-primary" />
@@ -120,7 +103,7 @@ export default function AboutPage() {
                 </h3>
                 <p className="text-sm text-muted">{value.description}</p>
               </Card>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </Section>
@@ -128,12 +111,7 @@ export default function AboutPage() {
       {/* Contact */}
       <Section>
         <div className="mx-auto max-w-2xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <FadeIn>
             <h2 className="mb-4 text-2xl font-semibold text-foreground">
               Get in touch
             </h2>
@@ -159,7 +137,7 @@ export default function AboutPage() {
                 hello@costdog.dev
               </a>
             </div>
-          </motion.div>
+          </FadeIn>
         </div>
       </Section>
     </>

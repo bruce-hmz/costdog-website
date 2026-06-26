@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
   Activity,
   PanelTop,
@@ -16,6 +13,7 @@ import {
   Eye,
 } from "lucide-react";
 import { Section, SectionHeader } from "@/components/shared/section";
+import { FadeIn } from "@/components/shared/fade-in";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Glow } from "@/components/shared/glow";
@@ -115,11 +113,7 @@ export default function FeaturesPage() {
         <Glow />
         <div className="grid-bg absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="animate-fade-in-up">
             <Badge variant="primary" className="mb-6">
               Features
             </Badge>
@@ -132,7 +126,7 @@ export default function FeaturesPage() {
               Real-time visibility, smart alerts, and deep insights — all
               running locally on your machine. No cloud required.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -140,13 +134,7 @@ export default function FeaturesPage() {
       <Section className="bg-surface">
         <div className="grid gap-6 md:grid-cols-3">
           {highlights.map((h, i) => (
-            <motion.div
-              key={h.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
+            <FadeIn key={h.title} delay={i * 100}>
               <Card className="h-full text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                   <h.icon className="h-6 w-6 text-primary" />
@@ -156,7 +144,7 @@ export default function FeaturesPage() {
                 </h3>
                 <p className="text-sm text-muted">{h.description}</p>
               </Card>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </Section>
@@ -170,13 +158,7 @@ export default function FeaturesPage() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, i) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-            >
+            <FadeIn key={feature.title} delay={i * 50}>
               <Card className="h-full hover:border-primary/30 hover:shadow-md">
                 <div className="mb-4 flex items-center justify-between">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
@@ -189,7 +171,7 @@ export default function FeaturesPage() {
                 </h3>
                 <p className="text-sm text-muted">{feature.description}</p>
               </Card>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </Section>

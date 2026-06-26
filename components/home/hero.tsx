@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -17,43 +14,24 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="animate-fade-in-up">
             <Badge variant="primary" className="mb-6">
               Free &amp; Open Source
             </Badge>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
+          <h1 className="animate-fade-in-up text-4xl font-bold tracking-tight text-foreground [animation-delay:100ms] sm:text-6xl lg:text-7xl">
             See Every Token.
             <br />
             <span className="gradient-text">Control Every Dollar.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="mt-6 text-lg text-muted sm:text-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          <p className="animate-fade-in-up mt-6 text-lg text-muted [animation-delay:200ms] sm:text-xl">
             Real-time AI cost intelligence for Claude Code, Codex, and every
             model you use. Free, open-source, and runs entirely on your machine.
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
+          <div className="animate-fade-in-up mt-10 flex flex-col items-center justify-center gap-4 [animation-delay:300ms] sm:flex-row">
             <Button asChild size="lg">
               <a
                 href={SITE_CONFIG.githubReleases}
@@ -76,27 +54,17 @@ export function Hero() {
                 Star on GitHub
               </a>
             </Button>
-          </motion.div>
+          </div>
 
-          <motion.p
-            className="mt-4 text-sm text-muted"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
+          <p className="animate-fade-in-up mt-4 text-sm text-muted [animation-delay:400ms]">
             Free forever · Open source · No account required · 3MB
-          </motion.p>
+          </p>
         </div>
 
         {/* Dashboard preview */}
-        <motion.div
-          className="mx-auto mt-16 max-w-4xl sm:mt-20"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-        >
+        <div className="animate-fade-in-up mx-auto mt-16 max-w-4xl [animation-delay:500ms] sm:mt-20">
           <DashboardPreview />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

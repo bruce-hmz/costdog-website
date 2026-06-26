@@ -1,15 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
 export default function InstallationPage() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="animate-fade-in-up">
       <Badge variant="primary" className="mb-4">
         Installation
       </Badge>
@@ -130,6 +123,6 @@ npm run tauri:build`}
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

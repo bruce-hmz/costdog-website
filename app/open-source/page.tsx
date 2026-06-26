@@ -1,8 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ExternalLink as Github, GitBranch, Heart, Users, Code, Star } from "lucide-react";
 import { Section, SectionHeader } from "@/components/shared/section";
+import { FadeIn } from "@/components/shared/fade-in";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -44,11 +42,7 @@ export default function OpenSourcePage() {
         <Glow />
         <div className="grid-bg absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="animate-fade-in-up">
             <Badge variant="primary" className="mb-6">
               Open Source
             </Badge>
@@ -75,7 +69,7 @@ export default function OpenSourcePage() {
                 </a>
               </Button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -88,13 +82,7 @@ export default function OpenSourcePage() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {ways.map((way, i) => (
-            <motion.div
-              key={way.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
+            <FadeIn key={way.title} delay={i * 100}>
               <Card className="h-full text-center">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                   <way.icon className="h-6 w-6 text-primary" />
@@ -104,7 +92,7 @@ export default function OpenSourcePage() {
                 </h3>
                 <p className="text-sm text-muted">{way.description}</p>
               </Card>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </Section>
@@ -112,12 +100,7 @@ export default function OpenSourcePage() {
       {/* License */}
       <Section className="bg-surface">
         <div className="mx-auto max-w-2xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <FadeIn>
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-success/10">
               <Heart className="h-8 w-8 text-success" />
             </div>
@@ -150,7 +133,7 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.`}
               </pre>
             </div>
-          </motion.div>
+          </FadeIn>
         </div>
       </Section>
     </>

@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   BookOpen,
   Download,
@@ -10,6 +7,7 @@ import {
   HelpCircle,
   Zap,
 } from "lucide-react";
+import { FadeIn } from "@/components/shared/fade-in";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Glow } from "@/components/shared/glow";
@@ -68,12 +66,7 @@ export default function DocsPage() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         {sections.map((section, i) => (
-          <motion.div
-            key={section.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: i * 0.05 }}
-          >
+          <FadeIn key={section.title} delay={i * 50}>
             <Link href={section.href} className="group block">
               <Card className="h-full transition-all duration-200 hover:border-primary/30 hover:shadow-md">
                 <div className="flex items-start gap-4">
@@ -91,7 +84,7 @@ export default function DocsPage() {
                 </div>
               </Card>
             </Link>
-          </motion.div>
+          </FadeIn>
         ))}
       </div>
     </>

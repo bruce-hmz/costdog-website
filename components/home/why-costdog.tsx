@@ -1,8 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Moon, EyeOff, Zap, ArrowRight } from "lucide-react";
 import { Section, SectionHeader } from "@/components/shared/section";
+import { FadeIn } from "@/components/shared/fade-in";
 
 const reasons = [
   {
@@ -46,47 +44,42 @@ export function WhyCostDog() {
 
       <div className="mt-12 flex flex-col gap-6">
         {reasons.map((reason, i) => (
-          <motion.div
-            key={reason.problem}
-            className="grid gap-6 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:grid-cols-[1fr_auto_1fr]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-          >
-            {/* Problem side */}
-            <div>
-              <div className="mb-3 flex items-center gap-2">
-                <reason.problemIcon className="h-4 w-4 text-danger" />
-                <span className="text-xs font-medium uppercase tracking-wider text-danger">
-                  Problem
-                </span>
+          <FadeIn key={reason.problem} delay={i * 100}>
+            <div className="grid gap-6 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:grid-cols-[1fr_auto_1fr]">
+              {/* Problem side */}
+              <div>
+                <div className="mb-3 flex items-center gap-2">
+                  <reason.problemIcon className="h-4 w-4 text-danger" />
+                  <span className="text-xs font-medium uppercase tracking-wider text-danger">
+                    Problem
+                  </span>
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  {reason.problem}
+                </h3>
+                <p className="text-sm text-white/70">{reason.problemDetail}</p>
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">
-                {reason.problem}
-              </h3>
-              <p className="text-sm text-white/70">{reason.problemDetail}</p>
-            </div>
 
-            {/* Arrow divider */}
-            <div className="hidden items-center justify-center md:flex">
-              <ArrowRight className="h-5 w-5 text-primary" />
-            </div>
-
-            {/* Solution side */}
-            <div>
-              <div className="mb-3 flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-success" />
-                <span className="text-xs font-medium uppercase tracking-wider text-success">
-                  Solution
-                </span>
+              {/* Arrow divider */}
+              <div className="hidden items-center justify-center md:flex">
+                <ArrowRight className="h-5 w-5 text-primary" />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">
-                {reason.solution}
-              </h3>
-              <p className="text-sm text-white/70">{reason.solutionDetail}</p>
+
+              {/* Solution side */}
+              <div>
+                <div className="mb-3 flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-success" />
+                  <span className="text-xs font-medium uppercase tracking-wider text-success">
+                    Solution
+                  </span>
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-white">
+                  {reason.solution}
+                </h3>
+                <p className="text-sm text-white/70">{reason.solutionDetail}</p>
+              </div>
             </div>
-          </motion.div>
+          </FadeIn>
         ))}
       </div>
     </Section>

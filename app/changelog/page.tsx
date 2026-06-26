@@ -1,9 +1,7 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Glow } from "@/components/shared/glow";
 import { Section } from "@/components/shared/section";
+import { FadeIn } from "@/components/shared/fade-in";
 
 const releases = [
   {
@@ -43,11 +41,7 @@ export default function ChangelogPage() {
         <Glow />
         <div className="grid-bg absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="animate-fade-in-up">
             <Badge variant="primary" className="mb-6">
               Changelog
             </Badge>
@@ -59,7 +53,7 @@ export default function ChangelogPage() {
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted">
               Track every update, fix, and improvement.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -67,47 +61,42 @@ export default function ChangelogPage() {
       <Section>
         <div className="mx-auto max-w-2xl">
           {releases.map((release, i) => (
-            <motion.div
-              key={release.version}
-              className="relative border-l border-border pl-8 pb-12 last:pb-0"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
-              {/* Timeline dot */}
-              <div className="absolute -left-1.5 top-1 h-3 w-3 rounded-full border-2 border-primary bg-background" />
+            <FadeIn key={release.version} delay={i * 100} direction="none">
+              <div className="relative border-l border-border pl-8 pb-12 last:pb-0">
+                {/* Timeline dot */}
+                <div className="absolute -left-1.5 top-1 h-3 w-3 rounded-full border-2 border-primary bg-background" />
 
-              <div className="mb-2 flex items-center gap-3">
-                <span className="font-mono text-sm font-medium text-primary">
-                  {release.version}
-                </span>
-                <Badge
-                  variant={
-                    release.tag === "Release" ? "primary" : "default"
-                  }
-                >
-                  {release.tag}
-                </Badge>
-                <span className="text-sm text-muted">{release.date}</span>
-              </div>
-
-              <h3 className="mb-3 text-lg font-semibold text-foreground">
-                {release.title}
-              </h3>
-
-              <ul className="flex flex-col gap-2">
-                {release.changes.map((change) => (
-                  <li
-                    key={change}
-                    className="flex items-start gap-2 text-sm text-muted"
+                <div className="mb-2 flex items-center gap-3">
+                  <span className="font-mono text-sm font-medium text-primary">
+                    {release.version}
+                  </span>
+                  <Badge
+                    variant={
+                      release.tag === "Release" ? "primary" : "default"
+                    }
                   >
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-border" />
-                    {change}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+                    {release.tag}
+                  </Badge>
+                  <span className="text-sm text-muted">{release.date}</span>
+                </div>
+
+                <h3 className="mb-3 text-lg font-semibold text-foreground">
+                  {release.title}
+                </h3>
+
+                <ul className="flex flex-col gap-2">
+                  {release.changes.map((change) => (
+                    <li
+                      key={change}
+                      className="flex items-start gap-2 text-sm text-muted"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-border" />
+                      {change}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
           ))}
         </div>
       </Section>

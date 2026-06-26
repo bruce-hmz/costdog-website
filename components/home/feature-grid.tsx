@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
   Activity,
   PanelTop,
@@ -13,6 +10,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { Section, SectionHeader } from "@/components/shared/section";
+import { FadeIn } from "@/components/shared/fade-in";
 import { FEATURES } from "@/lib/constants";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -40,22 +38,17 @@ export function FeatureGrid() {
         {FEATURES.map((feature, i) => {
           const Icon = iconMap[feature.icon] || Activity;
           return (
-            <motion.div
-              key={feature.title}
-              className="group rounded-xl border border-border bg-surface p-6 transition-all duration-200 hover:border-primary/30 hover:shadow-md"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-            >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                <Icon className="h-5 w-5 text-primary" />
+            <FadeIn key={feature.title} delay={i * 50}>
+              <div className="group h-full rounded-xl border border-border bg-surface p-6 transition-all duration-200 hover:border-primary/30 hover:shadow-md">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <Icon className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="mb-2 text-base font-semibold text-foreground">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-muted">{feature.description}</p>
               </div>
-              <h3 className="mb-2 text-base font-semibold text-foreground">
-                {feature.title}
-              </h3>
-              <p className="text-sm text-muted">{feature.description}</p>
-            </motion.div>
+            </FadeIn>
           );
         })}
       </div>

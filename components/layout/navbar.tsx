@@ -46,7 +46,7 @@ export function Navbar() {
             <span>Star</span>
           </a>
           <Button asChild size="sm">
-            <Link href="/pricing">Download</Link>
+            <Link href={SITE_CONFIG.githubReleases}>Download</Link>
           </Button>
         </div>
 
@@ -93,7 +93,7 @@ export function Navbar() {
                   <span>Star</span>
                 </a>
                 <Button asChild size="sm" className="flex-1">
-                  <Link href="/pricing">Download</Link>
+                  <Link href={SITE_CONFIG.githubReleases}>Download</Link>
                 </Button>
               </div>
             </div>

@@ -96,3 +96,20 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Fade-in animation (replaces Framer Motion for entrance animations) */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fade-in-up 0.5s ease-out forwards;
+}

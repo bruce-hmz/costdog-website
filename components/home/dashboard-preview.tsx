@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import {
   Activity,
   DollarSign,
@@ -21,6 +21,37 @@ const mockData = {
     { name: "gpt-4o", cost: "$0.43", pct: 9 },
   ],
 };
+
+function ProgressBar({ pct }: { pct: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            el.style.width = `${pct}%`;
+          }, 500);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [pct]);
+
+  return (
+    <div className="h-1 overflow-hidden rounded-full bg-[#27272a]">
+      <div
+        ref={ref}
+        className="h-full w-0 rounded-full bg-gradient-to-r from-[#6C5CE7] to-[#00D2FF] transition-all duration-1000 ease-out"
+      />
+    </div>
+  );
+}
 
 export function DashboardPreview() {
   return (
@@ -116,15 +147,7 @@ export function DashboardPreview() {
                   {model.cost}
                 </span>
               </div>
-              <div className="h-1 overflow-hidden rounded-full bg-[#27272a]">
-                <motion.div
-                  className="h-full rounded-full bg-gradient-to-r from-[#6C5CE7] to-[#00D2FF]"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${model.pct}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                />
-              </div>
+              <ProgressBar pct={model.pct} />
             </div>
           ))}
         </div>

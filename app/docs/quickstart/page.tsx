@@ -1,15 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
 export default function QuickStartPage() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="animate-fade-in-up">
       <Badge variant="primary" className="mb-4">
         Quick Start
       </Badge>
@@ -89,7 +82,7 @@ npm run tauri:build`}
             <ul className="flex flex-col gap-2 text-sm text-muted">
               <li>
                 • <strong className="text-foreground">Bar mode:</strong> Shows
-                today's cost, tokens, and sessions
+                today&apos;s cost, tokens, and sessions
               </li>
               <li>
                 • <strong className="text-foreground">Expanded mode:</strong>{" "}
@@ -107,6 +100,6 @@ npm run tauri:build`}
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
