@@ -92,7 +92,7 @@ export default function PricingPage() {
 
               {plan.highlighted ? (
                 <Button asChild className="w-full">
-                  <Link href="/contact" className="whitespace-nowrap">
+                  <Link href="/contact" className="inline-flex items-center gap-2 whitespace-nowrap">
                     {plan.cta}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -103,7 +103,7 @@ export default function PricingPage() {
                     href={SITE_CONFIG.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="whitespace-nowrap"
+                    className="inline-flex items-center gap-2 whitespace-nowrap"
                   >
                     <Github className="h-4 w-4" />
                     {plan.cta}

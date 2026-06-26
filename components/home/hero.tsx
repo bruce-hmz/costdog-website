@@ -55,7 +55,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <Button asChild size="lg">
-              <Link href="/pricing" className="whitespace-nowrap">
+              <Link href="/pricing" className="inline-flex items-center gap-2 whitespace-nowrap">
                 Download Free
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -65,7 +65,7 @@ export function Hero() {
                 href={SITE_CONFIG.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="whitespace-nowrap"
+                className="inline-flex items-center gap-2 whitespace-nowrap"
               >
                 <ExternalLink className="h-4 w-4" />
                 Star on GitHub
