@@ -43,10 +43,15 @@ export function CTA() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <Button asChild size="lg">
-            <Link href="/pricing" className="inline-flex items-center gap-2 whitespace-nowrap">
+            <a
+              href={SITE_CONFIG.githubReleases}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 whitespace-nowrap"
+            >
               Download Free
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </a>
           </Button>
           <Button asChild variant="secondary" size="lg">
             <a

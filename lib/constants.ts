@@ -6,6 +6,7 @@ export const SITE_CONFIG = {
   url: "https://costdog.dev",
   ogImage: "https://costdog.dev/api/og",
   github: "https://github.com/bruce-hmz/costdog",
+  githubReleases: "https://github.com/bruce-hmz/costdog/releases/latest",
   githubApi: "https://api.github.com/repos/bruce-hmz/costdog",
   keywords: [
     "AI cost monitoring",

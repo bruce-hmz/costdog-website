@@ -100,7 +100,7 @@ export default function PricingPage() {
               ) : (
                 <Button asChild variant="secondary" className="w-full">
                   <a
-                    href={SITE_CONFIG.github}
+                    href={SITE_CONFIG.githubReleases}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 whitespace-nowrap"

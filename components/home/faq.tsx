@@ -28,8 +28,11 @@ export function FAQ() {
             transition={{ duration: 0.3, delay: i * 0.05 }}
           >
             <button
+              id={`faq-question-${i}`}
               className="flex w-full items-center justify-between gap-4 py-4 text-left"
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
+              aria-expanded={openIndex === i}
+              aria-controls={`faq-answer-${i}`}
             >
               <span className="text-sm font-medium text-foreground">
                 {faq.question}
@@ -38,11 +41,15 @@ export function FAQ() {
                 className={`h-4 w-4 shrink-0 text-muted transition-transform ${
                   openIndex === i ? "rotate-180" : ""
                 }`}
+                aria-hidden="true"
               />
             </button>
             <AnimatePresence>
               {openIndex === i && (
                 <motion.div
+                  id={`faq-answer-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}

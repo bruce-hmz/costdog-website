@@ -1,7 +1,5 @@
 import { Hero } from "@/components/home/hero";
-import { SocialProof } from "@/components/home/social-proof";
-import { Problem } from "@/components/home/problem";
-import { Solution } from "@/components/home/solution";
+import { WhyCostDog } from "@/components/home/why-costdog";
 import { FeatureGrid } from "@/components/home/feature-grid";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { PricingPreview } from "@/components/home/pricing-preview";
@@ -15,9 +13,7 @@ export default function Home() {
     <>
       <FAQJsonLd faqs={[...FAQS]} />
       <Hero />
-      <SocialProof />
-      <Problem />
-      <Solution />
+      <WhyCostDog />
       <FeatureGrid />
       <HowItWorks />
       <PricingPreview />
