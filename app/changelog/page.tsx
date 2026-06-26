@@ -1,0 +1,116 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import { Glow } from "@/components/shared/glow";
+import { Section } from "@/components/shared/section";
+
+const releases = [
+  {
+    version: "v0.1.1",
+    date: "June 2025",
+    title: "macOS Dragging Fix",
+    tag: "Fix",
+    changes: [
+      "Fixed window dragging on macOS using data-tauri-drag-region",
+      "Improved cross-platform compatibility",
+      "Updated CI workflow for universal macOS builds",
+    ],
+  },
+  {
+    version: "v0.1.0",
+    date: "June 2025",
+    title: "Initial Release",
+    tag: "Release",
+    changes: [
+      "Desktop widget for Claude Code and Codex",
+      "Real-time token tracking and cost calculation",
+      "Today / 7D / 30D / All timeframes",
+      "Top models ranking by cost",
+      "Smart cost alerts",
+      "Auto-refresh every 30 seconds",
+      "Cross-platform support (macOS + Windows)",
+      "Local SQLite storage",
+    ],
+  },
+];
+
+export default function ChangelogPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden py-20 sm:py-28">
+        <Glow />
+        <div className="grid-bg absolute inset-0" />
+        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Badge variant="primary" className="mb-6">
+              Changelog
+            </Badge>
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+              What's new in
+              <br />
+              <span className="gradient-text">CostDog</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted">
+              Track every update, fix, and improvement.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Releases */}
+      <Section>
+        <div className="mx-auto max-w-2xl">
+          {releases.map((release, i) => (
+            <motion.div
+              key={release.version}
+              className="relative border-l border-border pl-8 pb-12 last:pb-0"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              {/* Timeline dot */}
+              <div className="absolute -left-1.5 top-1 h-3 w-3 rounded-full border-2 border-primary bg-background" />
+
+              <div className="mb-2 flex items-center gap-3">
+                <span className="font-mono text-sm font-medium text-primary">
+                  {release.version}
+                </span>
+                <Badge
+                  variant={
+                    release.tag === "Release" ? "primary" : "default"
+                  }
+                >
+                  {release.tag}
+                </Badge>
+                <span className="text-sm text-muted">{release.date}</span>
+              </div>
+
+              <h3 className="mb-3 text-lg font-semibold text-foreground">
+                {release.title}
+              </h3>
+
+              <ul className="flex flex-col gap-2">
+                {release.changes.map((change) => (
+                  <li
+                    key={change}
+                    className="flex items-start gap-2 text-sm text-muted"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-border" />
+                    {change}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+    </>
+  );
+}
