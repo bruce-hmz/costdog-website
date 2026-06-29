@@ -34,7 +34,7 @@ const reasons = [
 
 export function WhyCostDog() {
   return (
-    <Section className="bg-foreground dark:bg-background">
+    <Section className="bg-zinc-900 dark:bg-zinc-800">
       <SectionHeader
         badge="Why CostDog"
         title="AI coding is powerful. AI costs are invisible."
