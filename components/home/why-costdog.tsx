@@ -34,18 +34,17 @@ const reasons = [
 
 export function WhyCostDog() {
   return (
-    <Section className="bg-zinc-900 dark:bg-zinc-800">
+    <Section className="bg-white dark:bg-zinc-800">
       <SectionHeader
         badge="Why CostDog"
         title="AI coding is powerful. AI costs are invisible."
         description="CostDog fixes that in seconds."
-        className="[&_span]:bg-white/10 [&_span]:text-white/70 [&_span]:border-white/10 [&_h2]:text-white [&_p]:text-white/70"
       />
 
       <div className="mt-12 flex flex-col gap-6">
         {reasons.map((reason, i) => (
           <FadeIn key={reason.problem} delay={i * 100}>
-            <div className="grid gap-6 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:grid-cols-[1fr_auto_1fr]">
+            <div className="grid gap-6 rounded-xl border border-border p-6 dark:border-white/10 dark:bg-white/5 md:grid-cols-[1fr_auto_1fr]">
               {/* Problem side */}
               <div>
                 <div className="mb-3 flex items-center gap-2">
@@ -54,10 +53,10 @@ export function WhyCostDog() {
                     Problem
                   </span>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">
+                <h3 className="mb-2 text-lg font-semibold text-foreground">
                   {reason.problem}
                 </h3>
-                <p className="text-sm text-white/70">{reason.problemDetail}</p>
+                <p className="text-sm text-muted">{reason.problemDetail}</p>
               </div>
 
               {/* Arrow divider */}
@@ -73,10 +72,10 @@ export function WhyCostDog() {
                     Solution
                   </span>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">
+                <h3 className="mb-2 text-lg font-semibold text-foreground">
                   {reason.solution}
                 </h3>
-                <p className="text-sm text-white/70">{reason.solutionDetail}</p>
+                <p className="text-sm text-muted">{reason.solutionDetail}</p>
               </div>
             </div>
           </FadeIn>
