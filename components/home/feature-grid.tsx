@@ -46,7 +46,7 @@ const spotlightFeatures = [
     icon: Plug,
     title: "One-Click Install",
     description:
-      "~5MB on macOS, ~15MB on Windows. Auto-scans your existing Claude Code and Codex logs. No SDK. No API keys. Install and go.",
+      "~15MB on macOS, ~5MB on Windows. Auto-scans your existing Claude Code and Codex logs. No SDK. No API keys. Install and go.",
     mockup: "install",
   },
 ];

@@ -106,7 +106,7 @@ export const FEATURES = [
     description:
       "Claude Code and Codex in one view. More tools coming soon. One dashboard for everything.",
     detailed:
-      "Claude Code and Codex in one view. One dashboard for everything. More tools coming soon: Windsurf, Cursor, Aider.",
+      "Claude Code and Codex in one view. One dashboard for everything. More tools coming soon.",
     icon: "Plug",
     badge: "Integration",
   },
@@ -184,7 +184,7 @@ export const FAQS = [
   {
     question: "What AI tools does CostDog support?",
     answer:
-      "Claude Code and Codex CLI today. Support for Windsurf, Cursor, Aider, and direct API tracking (OpenAI, Anthropic, Google) is on the roadmap.",
+      "Claude Code and Codex CLI today. Support for more tools (Windsurf, Cursor, Aider) and direct API tracking is on the roadmap.",
   },
   {
     question: "Is my data sent to the cloud?",
@@ -204,12 +204,12 @@ export const FAQS = [
   {
     question: "Does it work on Apple Silicon?",
     answer:
-      "Yes. Universal binary for macOS (Intel + Apple Silicon). Also available for Windows x64. Lightweight installers, done in seconds.",
+      "Yes. Universal binary for macOS (Intel + Apple Silicon, ~15MB). Also available for Windows x64 (~5MB EXE, ~7MB MSI).",
   },
   {
     question: "How accurate is the cost calculation?",
     answer:
-      "We use per-model pricing rates based on provider list prices. A future update will add real-time pricing via OpenRouter for 339+ models.",
+      "We use real-time pricing from OpenRouter, covering 339+ models including Claude, GPT, Gemini, DeepSeek, and more. Prices are cached locally and refreshed every 24 hours.",
   },
   {
     question: "Can I use it in a team?",

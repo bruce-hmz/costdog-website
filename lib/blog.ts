@@ -135,7 +135,7 @@ CostDog is a desktop widget that sits on top of your terminal. Here's how we bui
 
 ## Why Tauri?
 
-- **Lightweight installer** (~5MB mac, ~15MB Windows) vs Electron's 150MB+
+- **Lightweight installer** (~15MB mac, ~5MB Windows) vs Electron's 150MB+
 - **Rust backend** — fast, memory-safe, no runtime
 - **System WebView** — no bundled browser
 - **Native feel** — real window controls, system tray

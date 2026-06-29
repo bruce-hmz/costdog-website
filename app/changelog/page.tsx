@@ -5,8 +5,80 @@ import { FadeIn } from "@/components/shared/fade-in";
 
 const releases = [
   {
+    version: "v0.1.8",
+    date: "June 28, 2026",
+    title: "Updater Stability",
+    tag: "Fix",
+    changes: [
+      "Fixed updater showing [object Object] in progress bar",
+      "Improved up-to-date and error dialogs",
+    ],
+  },
+  {
+    version: "v0.1.7",
+    date: "June 28, 2026",
+    title: "Update Progress Bar",
+    tag: "Fix",
+    changes: [
+      "Added visible update progress bar",
+      "Made update process transparent to users",
+    ],
+  },
+  {
+    version: "v0.1.6",
+    date: "June 28, 2026",
+    title: "Version in Header",
+    tag: "Feature",
+    changes: [
+      "Show app version in detail header",
+      "Made update process visible in UI",
+    ],
+  },
+  {
+    version: "v0.1.5",
+    date: "June 28, 2026",
+    title: "Tray Version Display",
+    tag: "Feature",
+    changes: [
+      "Show version number in system tray tooltip",
+      "Version displayed in tray menu header",
+    ],
+  },
+  {
+    version: "v0.1.4",
+    date: "June 28, 2026",
+    title: "Auto-Updater Test",
+    tag: "Fix",
+    changes: [
+      "Tested auto-update flow end-to-end",
+    ],
+  },
+  {
+    version: "v0.1.3",
+    date: "June 28, 2026",
+    title: "Auto-Updater",
+    tag: "Feature",
+    changes: [
+      "Auto-update on launch with signed releases",
+      "Update check from system tray",
+      "Update dialog with download progress",
+    ],
+  },
+  {
+    version: "v0.1.2",
+    date: "June 27, 2026",
+    title: "Pricing & Parsing Fixes",
+    tag: "Fix",
+    changes: [
+      "Fixed OpenRouter string price parsing",
+      "Fixed Claude model version matching (e.g. claude-sonnet-4-20250514)",
+      "Skip zero-usage sessions to reduce noise",
+      "Per-day attribution so Today view reflects actual daily usage",
+    ],
+  },
+  {
     version: "v0.1.1",
-    date: "June 2025",
+    date: "June 26, 2026",
     title: "macOS Dragging Fix",
     tag: "Fix",
     changes: [
@@ -17,7 +89,7 @@ const releases = [
   },
   {
     version: "v0.1.0",
-    date: "June 2025",
+    date: "June 26, 2026",
     title: "Initial Release",
     tag: "Release",
     changes: [
