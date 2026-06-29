@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Dog, Menu, X, ExternalLink } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -61,45 +60,39 @@ export function Navbar() {
       </nav>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="border-b border-border bg-background md:hidden"
-          >
-            <div className="flex flex-col gap-1 px-4 py-3">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="mt-2 flex items-center gap-2 border-t border-border pt-3">
-                <ThemeToggle />
-                <a
-                  href={SITE_CONFIG.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-sm text-muted"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  <span>Star</span>
-                </a>
-                <Button asChild size="sm" className="flex-1">
-                  <Link href={SITE_CONFIG.githubReleases}>Download</Link>
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className={`overflow-hidden border-b border-border bg-background transition-all duration-200 ease-out md:hidden ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 border-b-0 opacity-0"
+        }`}
+      >
+        <div className="flex flex-col gap-1 px-4 py-3">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div className="mt-2 flex items-center gap-2 border-t border-border pt-3">
+            <ThemeToggle />
+            <a
+              href={SITE_CONFIG.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-sm text-muted"
+            >
+              <ExternalLink className="h-4 w-4" />
+              <span>Star</span>
+            </a>
+            <Button asChild size="sm" className="flex-1">
+              <Link href={SITE_CONFIG.githubReleases}>Download</Link>
+            </Button>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }

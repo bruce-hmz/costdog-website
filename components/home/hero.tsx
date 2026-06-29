@@ -37,7 +37,6 @@ export function Hero() {
                 href={SITE_CONFIG.githubReleases}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 whitespace-nowrap"
               >
                 Download Free
                 <ArrowRight className="h-4 w-4" />
@@ -48,7 +47,6 @@ export function Hero() {
                 href={SITE_CONFIG.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 whitespace-nowrap"
               >
                 <ExternalLink className="h-4 w-4" />
                 Star on GitHub

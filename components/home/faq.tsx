@@ -1,14 +1,8 @@
-"use client";
-
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { Section, SectionHeader } from "@/components/shared/section";
+import { FadeIn } from "@/components/shared/fade-in";
 import { FAQS } from "@/lib/constants";
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
     <Section className="bg-surface">
       <SectionHeader
@@ -19,48 +13,27 @@ export function FAQ() {
 
       <div className="mx-auto mt-12 max-w-2xl">
         {FAQS.map((faq, i) => (
-          <motion.div
-            key={i}
-            className="border-b border-border"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: i * 0.05 }}
-          >
-            <button
-              id={`faq-question-${i}`}
-              className="flex w-full items-center justify-between gap-4 py-4 text-left"
-              onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              aria-expanded={openIndex === i}
-              aria-controls={`faq-answer-${i}`}
-            >
-              <span className="text-sm font-medium text-foreground">
-                {faq.question}
-              </span>
-              <ChevronDown
-                className={`h-4 w-4 shrink-0 text-muted transition-transform ${
-                  openIndex === i ? "rotate-180" : ""
-                }`}
-                aria-hidden="true"
-              />
-            </button>
-            <AnimatePresence>
-              {openIndex === i && (
-                <motion.div
-                  id={`faq-answer-${i}`}
-                  role="region"
-                  aria-labelledby={`faq-question-${i}`}
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="overflow-hidden"
+          <FadeIn key={i} delay={i * 50} direction="none">
+            <details className="group border-b border-border">
+              <summary className="flex w-full cursor-pointer items-center justify-between gap-4 py-4 text-left list-none [&::-webkit-details-marker]:hidden">
+                <span className="text-sm font-medium text-foreground">
+                  {faq.question}
+                </span>
+                <svg
+                  className="h-4 w-4 shrink-0 text-muted transition-transform group-open:rotate-180"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  aria-hidden="true"
                 >
-                  <p className="pb-4 text-sm text-muted">{faq.answer}</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </summary>
+              <p className="pb-4 text-sm text-muted">{faq.answer}</p>
+            </details>
+          </FadeIn>
         ))}
       </div>
     </Section>

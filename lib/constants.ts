@@ -60,55 +60,82 @@ export const FEATURES = [
     title: "Real-Time Dashboard",
     description:
       "Live token counts, costs, and session stats refreshing every 30 seconds. Never miss a spike.",
+    detailed:
+      "Live token counts, costs, and session stats refreshing every 30 seconds. Never miss a spike. See exactly what's happening right now.",
     icon: "Activity",
+    badge: "Core",
   },
   {
     title: "Desktop Widget",
     description:
       "Always-on-top floating bar that sits above your terminal. Costs at a glance, zero distraction.",
+    detailed:
+      "Always-on-top floating bar that sits above your terminal. Costs at a glance, zero distraction. Click to expand for full details.",
     icon: "PanelTop",
+    badge: "Core",
   },
   {
     title: "Multi-Timeframe",
     description:
       "Switch between Today, 7 days, 30 days, and All Time views. Spot trends instantly.",
+    detailed:
+      "Switch between Today, 7 days, 30 days, and All Time views. Spot trends instantly. Compare spending across periods.",
     icon: "Calendar",
+    badge: "Core",
   },
   {
     title: "Model Breakdown",
     description:
       "See which models cost the most — ranked by total spend. Know where your money goes.",
+    detailed:
+      "See which models cost the most — ranked by total spend. Know exactly where your money goes. Optimize your model selection.",
     icon: "BarChart3",
+    badge: "Insights",
   },
   {
     title: "Smart Alerts",
     description:
       "Get warned when daily costs exceed your budget threshold. No more bill shock.",
+    detailed:
+      "Get warned when daily costs exceed your budget threshold. No more bill shock. Set custom thresholds per project.",
     icon: "Bell",
+    badge: "Alerts",
   },
   {
     title: "Multi-Tool Support",
     description:
       "Claude Code and Codex in one view. More tools coming soon. One dashboard for everything.",
+    detailed:
+      "Claude Code and Codex in one view. One dashboard for everything. More tools coming soon: Windsurf, Cursor, Aider.",
     icon: "Plug",
+    badge: "Integration",
   },
   {
     title: "Cross-Platform",
     description:
       "Native apps for macOS (Intel + Apple Silicon) and Windows. 3MB installer. Done.",
+    detailed:
+      "Native apps for macOS (Intel + Apple Silicon) and Windows. Universal binary. 3MB installer. Done in seconds.",
     icon: "Monitor",
+    badge: "Platform",
   },
   {
     title: "Local SQLite",
     description:
       "All data stored locally in ~/.costdog/costdog.sqlite. Query it yourself if you want.",
+    detailed:
+      "All data stored locally in ~/.costdog/costdog.sqlite. Query it yourself. Export to CSV. Full ownership of your data.",
     icon: "Database",
+    badge: "Data",
   },
   {
     title: "Open Source",
     description:
       "MIT licensed. Inspect the code, contribute features, fork freely. Built in public.",
+    detailed:
+      "MIT licensed. Inspect the code, contribute features, fork freely. Built in public. Community driven.",
     icon: "Github",
+    badge: "OSS",
   },
 ] as const;
 
