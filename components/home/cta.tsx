@@ -12,7 +12,7 @@ export function CTA() {
           Start seeing your AI costs today
         </h2>
         <p className="mt-4 text-lg text-muted">
-          Free. Open source. Under 3MB. Install in seconds.
+          Free. Open source. Lightweight. Install in seconds.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button asChild size="lg">

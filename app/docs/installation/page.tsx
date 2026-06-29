@@ -111,8 +111,8 @@ npm run tauri:build`}
                 10+ (x64).
               </li>
               <li>
-                • <strong className="text-foreground">Disk:</strong> ~3MB for
-                the app. SQLite database grows with usage.
+                • <strong className="text-foreground">Disk:</strong> ~5MB (macOS)
+                / ~15MB (Windows). SQLite database grows with usage.
               </li>
               <li>
                 • <strong className="text-foreground">Prerequisites:</strong>{" "}

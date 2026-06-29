@@ -55,7 +55,7 @@ export function Hero() {
           </div>
 
           <p className="animate-fade-in-up mt-4 text-sm text-muted [animation-delay:400ms]">
-            Free forever · Open source · No account required · 3MB
+            Free forever · Open source · No account required · Lightweight
           </p>
         </div>
 

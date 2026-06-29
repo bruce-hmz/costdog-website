@@ -36,7 +36,7 @@ Tracked from `/plan-design-review` on 2026-06-26.
 
 ### Optimize Framer Motion bundle
 - **What:** Replace simple fade-in animations with CSS `@keyframes` + IntersectionObserver. Keep framer-motion only for complex sequences.
-- **Why:** Every page ships ~30KB gzipped animation JS. Site markets itself as "3MB".
+- **Why:** Every page ships ~30KB gzipped animation JS.
 - **Pros:** Faster page loads, lighter bundle
 - **Cons:** Requires rewriting animation logic in multiple components
 - **Context:** Every `components/home/*.tsx` component

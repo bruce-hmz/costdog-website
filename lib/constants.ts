@@ -113,9 +113,9 @@ export const FEATURES = [
   {
     title: "Cross-Platform",
     description:
-      "Native apps for macOS (Intel + Apple Silicon) and Windows. 3MB installer. Done.",
+      "Native apps for macOS (Intel + Apple Silicon) and Windows. Lightweight installer. Done.",
     detailed:
-      "Native apps for macOS (Intel + Apple Silicon) and Windows. Universal binary. 3MB installer. Done in seconds.",
+      "Native apps for macOS (Intel + Apple Silicon) and Windows. Universal binary. Lightweight installer. Done in seconds.",
     icon: "Monitor",
     badge: "Platform",
   },
@@ -204,7 +204,7 @@ export const FAQS = [
   {
     question: "Does it work on Apple Silicon?",
     answer:
-      "Yes. Universal binary for macOS (Intel + Apple Silicon). Also available for Windows x64. Both installers are under 3MB.",
+      "Yes. Universal binary for macOS (Intel + Apple Silicon). Also available for Windows x64. Lightweight installers, done in seconds.",
   },
   {
     question: "How accurate is the cost calculation?",
@@ -224,7 +224,7 @@ export const FAQS = [
   {
     question: "How do I install it?",
     answer:
-      "macOS: download the .dmg from GitHub Releases. Windows: download the .exe installer. Both are under 3MB and install in seconds.",
+      "macOS: download the .dmg from GitHub Releases. Windows: download the .exe installer. Both are lightweight and install in seconds.",
   },
   {
     question: "Can I set a budget limit?",
@@ -248,7 +248,7 @@ export const STEPS = [
     step: 1,
     title: "Install",
     description:
-      "Download the installer for your platform. macOS (.dmg) or Windows (.exe). Under 3MB. Done in seconds.",
+      "Download the installer for your platform. macOS (.dmg) or Windows (.exe). Lightweight. Done in seconds.",
   },
   {
     step: 2,
