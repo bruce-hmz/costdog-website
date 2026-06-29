@@ -1,3 +1,12 @@
+/**
+ * DashboardPreview — Static illustration of the CostDog dashboard.
+ *
+ * This component uses hardcoded hex colors (e.g. #0f0f17, #1a1a2e, #6C5CE7)
+ * rather than the design token system. It is intentionally dark-only and does
+ * NOT respond to light/dark theme changes. If the design intent changes to
+ * support theming, refactor to use CSS custom properties from globals.css.
+ */
+
 "use client";
 
 import { useEffect, useRef } from "react";

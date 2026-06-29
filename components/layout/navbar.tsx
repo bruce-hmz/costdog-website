@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Menu, X, ExternalLink } from "lucide-react";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 import { ThemeToggle } from "./theme-toggle";
@@ -9,6 +9,54 @@ import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  const closeMenu = useCallback(() => setIsOpen(false), []);
+
+  // Focus trap + Escape to close
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const menu = menuRef.current;
+    if (!menu) return;
+
+    // Focus the first link when menu opens
+    const firstFocusable = menu.querySelector<HTMLElement>(
+      "a, button, [tabindex]:not([tabindex='-1'])",
+    );
+    firstFocusable?.focus();
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        closeMenu();
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      const focusables = menu!.querySelectorAll<HTMLElement>(
+        "a, button, [tabindex]:not([tabindex='-1'])",
+      );
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, closeMenu]);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-xl">
@@ -51,9 +99,11 @@ export function Navbar() {
 
         {/* Mobile menu button */}
         <button
+          ref={closeButtonRef}
           className="flex items-center justify-center rounded-lg p-2 text-muted hover:bg-surface md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -61,6 +111,10 @@ export function Navbar() {
 
       {/* Mobile menu */}
       <div
+        ref={menuRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
         className={`overflow-hidden border-b border-border bg-background transition-all duration-200 ease-out md:hidden ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 border-b-0 opacity-0"
         }`}

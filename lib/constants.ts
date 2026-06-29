@@ -252,9 +252,9 @@ export const STEPS = [
   },
   {
     step: 2,
-    title: "It Scans Automatically",
+    title: "Open CostDog",
     description:
-      "CostDog reads your existing Claude Code and Codex session logs. No SDK. No API keys. No configuration.",
+      "It auto-scans your existing Claude Code and Codex session logs. No SDK. No API keys. No configuration.",
   },
   {
     step: 3,

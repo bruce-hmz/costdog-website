@@ -7,7 +7,7 @@ interface FadeInProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  direction?: "up" | "down" | "none";
+  direction?: "up" | "down" | "left" | "right" | "none";
 }
 
 export function FadeIn({
@@ -40,7 +40,7 @@ export function FadeIn({
   }, [delay]);
 
   const initialTransform =
-    direction === "up" ? "translateY(20px)" : direction === "down" ? "translateY(-20px)" : "translateY(0)";
+    direction === "up" ? "translateY(20px)" : direction === "down" ? "translateY(-20px)" : direction === "left" ? "translateX(20px)" : direction === "right" ? "translateX(-20px)" : "translateY(0)";
 
   return (
     <div
