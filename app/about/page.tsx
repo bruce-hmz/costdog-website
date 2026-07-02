@@ -130,11 +130,11 @@ export default function AboutPage() {
                 GitHub
               </a>
               <a
-                href="mailto:hello@costdog.dev"
+                href="mailto:hello@costdog.vip"
                 className="flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
               >
                 <Mail className="h-4 w-4" />
-                hello@costdog.dev
+                hello@costdog.vip
               </a>
             </div>
           </FadeIn>

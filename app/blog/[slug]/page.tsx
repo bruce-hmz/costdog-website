@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
         title={post.title}
         description={post.description}
         datePublished={post.date}
-        url={`https://costdog.dev/blog/${post.slug}`}
+        url={`https://costdog.vip/blog/${post.slug}`}
       />
       <Glow />
       <div className="grid-bg absolute inset-0" />

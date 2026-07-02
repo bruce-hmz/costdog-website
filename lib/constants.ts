@@ -3,8 +3,8 @@ export const SITE_CONFIG = {
   title: "CostDog — AI Cost Intelligence Platform",
   description:
     "See every token. Control every dollar. Real-time AI cost intelligence for Claude Code, Codex, and every model you use.",
-  url: "https://costdog.dev",
-  ogImage: "https://costdog.dev/api/og",
+  url: "https://costdog.vip",
+  ogImage: "https://costdog.vip/api/og",
   github: "https://github.com/bruce-hmz/costdog",
   githubReleases: "https://github.com/bruce-hmz/costdog/releases/latest",
   githubApi: "https://api.github.com/repos/bruce-hmz/costdog",

@@ -27,7 +27,7 @@ const channels = [
     icon: Mail,
     title: "Email",
     description: "For private inquiries, partnerships, or press.",
-    href: "mailto:hello@costdog.dev",
+    href: "mailto:hello@costdog.vip",
     cta: "Send an Email",
   },
 ];

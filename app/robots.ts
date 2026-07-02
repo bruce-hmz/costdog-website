@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://costdog.dev/sitemap.xml",
+    sitemap: "https://costdog.vip/sitemap.xml",
   };
 }
